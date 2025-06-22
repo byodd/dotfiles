@@ -1,0 +1,119 @@
+{
+  /* ───────────────────────────
+     Bar-wide parameters
+     ─────────────────────────── */
+  "height": 30,
+  "spacing": 2,
+  
+  /* ───────────────────────────
+     Modules layout
+     ─────────────────────────── */
+  "modules-left": [
+    "hyprland/workspaces",
+    "sway/mode",
+    "sway/scratchpad",
+    "custom/media",
+    "tray"
+  ],
+  "modules-right": [
+    "custom/stopwatch",
+    "mpd",
+    "pulseaudio",
+    "network",
+    "backlight",
+    "keyboard-state",
+    "sway/language",
+    "battery",
+    "battery#bat2",
+    "clock",
+    "custom/btop",
+    "custom/power"
+  ],
+  
+  /* ───────────────────────────
+     Workspaces : Boutons réalistes 1-2-3
+     ─────────────────────────── */
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "format-icons": {},
+    "persistent_workspaces": {
+      "*": [1, 2, 3]
+    },
+    "disable-scroll": true,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "sort-by-number": true,
+    "active-only": false,
+    "all-outputs": true
+  },
+  
+  /* ───────────────────────────
+     Standard modules (inchangés)
+     ─────────────────────────── */
+  "sway/mode": { "format": "<span style=\"italic\">{}</span>" },
+  "custom/btop": {
+    "format": "",
+    "on-click": "kitty -e btop",
+    "tooltip-format": "Open BTOP"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth-muted": " {icon}",
+    "format-muted": " ",
+    "format-icons": {
+      "headphone": "", "hands-free": "", "headset": "",
+      "phone": "", "portable": "", "car": "",
+      "default": ["","",""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/stopwatch": {
+    "format": "⏱️ {}",
+    "exec": "~/.config/waybar/scripts/stopwatch_wrapper.sh",
+    "interval": 1,
+    "return-type": "json",
+    "signal": 8,
+    "on-click": "~/.config/waybar/scripts/stopwatch_wrapper.sh toggle && pkill -SIGRTMIN+8 waybar",
+    "on-click-right": "~/.config/waybar/scripts/stopwatch_wrapper.sh reset && pkill -SIGRTMIN+8 waybar",    
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": " ",
+    "format-disconnected": "睊",
+    "tooltip-format": "{signaldBm}dBm {frequency}GHz {essid}",
+    "on-click": "networkmanager_dmenu"
+  },
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": [
+    "",       // 0%
+    "",       // 1–12%
+    "",       // 13–25%
+    "",       // 26–37%
+    "",       // 38–50%
+    "",       // 51–62%
+    "",       // 63–75%
+    "",       // 76–87%
+    "󰖨"        // 88–100%
+    ],
+    "tooltip-format": "{percent}%"
+  },
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": ["","","","",""]
+  },
+  "battery#bat2": { "bat": "BAT2" },
+  "clock": {
+    "tooltip-format": "<big>{:%B %d %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%m/%d/%Y}"
+  },
+  "tray": { "spacing": 8 },
+  "custom/power": {
+    "format": "",
+    "on-click": "$HOME/.config/waybar/power.sh"
+  }
+}
