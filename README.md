@@ -4,7 +4,8 @@ Here are my dotfiles and some scripts I use in my Arch Linux environment.
 
 ![demo icon](https://github.com/byodd/dotfiles/blob/main/demo.png?raw=true "Desktop Demo")
 
-Note: Make sure to set your own username and adjust the keybindings as needed (the fr keyboard is set in hyprland.conf).
+ > [!NOTE]
+ > Note: Make sure to set your own username and adjust the keybindings as needed (the fr keyboard is set in hyprland.conf).
 
 I use Hyprland, SDDM, Thunar, Kitty, btop, NetworkManager, wofi, and Waybar.
 
