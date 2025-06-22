@@ -1,6 +1,6 @@
 # odd dotfiles
 Here are my dotfiles and some scripts I use in my Arch Linux environment.
-![alt text](https://github.com/byodd/dotfiles/raw/master/images/demo.png "Desktop Demo")
+![demo icon](https://github.com/byodd/dotfiles/blob/main/demo.png?raw=true "Desktop Demo")
 
 Note: Make sure to set your own username and adjust the keybindings as needed (the fr keyboard is set in hyprland.conf).
 
