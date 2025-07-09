@@ -1,0 +1,111 @@
+// -*- mode: jsonc -*-
+{
+    // Hauteur de la barre et espacement global
+    "height": 30,
+    "spacing": 2,
+
+    // Ordre des modules
+    "modules-left": [
+         "custom/ws1",
+        "custom/ws2",
+        "custom/ws3",
+        "sway/mode",
+        "sway/scratchpad",
+        "custom/media"
+    ],
+    "modules-right": [
+        "mpd",
+        "pulseaudio",
+        "network",
+        "backlight",
+        "keyboard-state",
+        "sway/language",
+        "battery",
+        "battery#bat2",
+        "clock",
+        "tray",
+        "custom/power"
+    ],
+
+    // ← Previous workspace
+    // Cercle pour bureau 1
+    "custom/ws1": {
+        "format": "●",
+        "tooltip": "Bureau 1",
+        "on-click": "hyprctl dispatch workspace 1"
+    },
+    // Cercle pour bureau 2
+    "custom/ws2": {
+        "format": "●",
+        "tooltip": "Bureau 2",
+        "on-click": "hyprctl dispatch workspace 2"
+    },
+    // Cercle pour bureau 3
+    "custom/ws3": {
+        "format": "●",
+        "tooltip": "Bureau 3",
+        "on-click": "hyprctl dispatch workspace 3"
+    },
+    // Volume et sources audio
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["","",""]
+        },
+        "on-click": "pavucontrol"
+    },
+    // Wifi / réseau
+    "network": {
+        "format-wifi": "{signalStrength}% ",
+        "format-disconnected": "{signalStrength}% 睊",
+        "on-click": "nm-connection-editor"
+    },
+    // Rétroéclairage écran
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["","","","","","","","",""]
+    },
+    // Batterie interne
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["","","","",""]
+    },
+    // Batterie secondaire
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    // Horloge
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%m/%d/%Y}"
+    },
+    // Icônes système (notifications, etc.)
+    "tray": {
+        "spacing": 8
+    },
+    // Menu power (shutdown, reboot…)
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
+    }
+}

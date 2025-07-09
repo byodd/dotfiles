@@ -1,0 +1,159 @@
+/*────────────────────────────────────────────────────────────────────
+  Waybar – thème minimalist
+  ─ espacement homogène
+  ─ trois boutons réalistes pour les work-spaces 1-2-3
+  ─ propriétés 100 % GTK-CSS valides
+────────────────────────────────────────────────────────────────────*/
+
+/* 1 ▸ Paramètres généraux */
+* {
+    border      : none;
+    font-family : "SF Pro Display", "JetBrainsMono Nerd Font", "Roboto", Arial, sans-serif;
+    font-size   : 13px;
+    color       : #2b2b2b;
+}
+
+window#waybar { 
+    border	     : none;
+    padding          : 0 5px;
+    margin-top       : 4px;
+    background	     : transparent;
+}
+
+/* 2 ▸ Segments gauche / droite (barre « métal brossé »)
+.modules-left,
+.modules-right {
+    border-radius    : 7px;
+    padding          : 0 6px;
+    margin-top       : 4px;
+    box-shadow:
+        inset 0  1px 0 rgba(255,255,255,.65),
+        inset 0 -1px 0 rgba(  0,  0,  0,.30);
+}*/
+
+.modules-left  { margin-left : 4px; }
+.modules-right { margin-right: 4px; }
+
+/* 3 ▸ Espacement spécifique pour chaque module */
+/* Modules de gauche */
+#workspaces,
+#mode,
+#scratchpad,
+#custom-media {
+    padding: 0 5px;
+    margin: 0 2px;
+}
+
+/* Modules de droite - espacement individuel */
+#mpd,
+#pulseaudio, 
+#network, 
+#backlight, 
+#battery,
+#clock, 
+#tray, 
+#custom-btop,
+#custom-power {
+    padding: 0 6px;
+    margin: 0 2px;
+}
+
+#custom-stopwatch {
+    min-width     : 24px;
+    min-height    : 24px;
+    padding	  : 0 8px;
+    border-radius : 50px;
+    border        : none;
+    margin        : 5px 5px;
+    font-size     : 11px;
+    color         : #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 4 ▸ Boutons réalistes des work-spaces */
+#workspaces { 
+    padding: 4px 4px;
+}
+
+#workspaces button {
+    min-width     : 28px;
+    min-height    : 28px;
+    padding	  : 0;
+    border-radius : 24px;
+    border        : none;
+    margin        : 0 1px;
+    font-size     : 11px;
+    color         : #333;
+}
+
+/* Bouton actif (enfoncé) */
+#workspaces button.active {
+    color: #fff;
+    
+    /* Effet bouton enfoncé */
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Bouton urgent (rouge) */
+#workspaces button.urgent {
+    background: linear-gradient(to bottom, 
+        #ff6b6b 0%, 
+        #e74c3c 50%, 
+        #c0392b 51%, 
+        #a93226 100%);
+    
+    border-color: #922b21;
+    color: white;
+    
+    box-shadow: 
+        inset 0  1px 0 rgba(255,255,255,0.3),
+        inset 0 -1px 0 rgba(0,0,0,0.2),
+        0 1px 2px rgba(0,0,0,0.3);
+}
+
+#workspaces button.urgent:hover {
+    background: linear-gradient(to bottom, 
+        #ff7979 0%, 
+        #e55039 50%, 
+        #c0392b 51%, 
+        #a93226 100%);
+}
+
+/* Système-tray */
+#tray > .item { 
+    padding: 0 6px; 
+}
+
+tooltip {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Couleurs spécifiques aux états de batterie */
+#battery.warning,
+#battery\#bat2.warning {
+    color: #e67e22; /* orange */
+}
+
+#battery.critical,
+#battery\#bat2.critical {
+    color: #c0392b; /* rouge */
+    animation: blink 0.5s linear infinite alternate;
+}
+
+/* Charging : vert */
+#battery.charging,
+#battery\#bat2.charging {
+    color: #27ae60;
+}
+
+/* Animation de clignotement pour l'état critique */
+@keyframes blink {
+    to {
+        color: #000000;
+    }
+}
+
