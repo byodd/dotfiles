@@ -10,10 +10,12 @@
      ─────────────────────────── */
   "modules-left": [
     "hyprland/workspaces",
-    "sway/mode",
-    "sway/scratchpad",
+    "custom/btop",
     "custom/media",
     "tray"
+  ],
+  "modules-center": [
+    "clock"
   ],
   "modules-right": [
     "custom/stopwatch",
@@ -21,12 +23,8 @@
     "pulseaudio",
     "network",
     "backlight",
-    "keyboard-state",
-    "sway/language",
     "battery",
     "battery#bat2",
-    "clock",
-    "custom/btop",
     "custom/power"
   ],
   
@@ -50,7 +48,6 @@
   /* ───────────────────────────
      Standard modules (inchangés)
      ─────────────────────────── */
-  "sway/mode": { "format": "<span style=\"italic\">{}</span>" },
   "custom/btop": {
     "format": "",
     "on-click": "kitty -e btop",
@@ -58,18 +55,18 @@
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%",
-    "format-bluetooth-muted": " {icon}",
+    "format-bluetooth": "{icon}   {volume}%",
+    "format-bluetooth-muted": "   {icon}",
     "format-muted": " ",
     "format-icons": {
       "headphone": "", "hands-free": "", "headset": "",
       "phone": "", "portable": "", "car": "",
-      "default": ["","",""]
+      "default": [" ","  ","  "]
     },
     "on-click": "pavucontrol"
   },
   "custom/stopwatch": {
-    "format": "⏱️ {}",
+    "format": "   {}",
     "exec": "~/.config/waybar/scripts/stopwatch_wrapper.sh",
     "interval": 1,
     "return-type": "json",
@@ -80,8 +77,8 @@
   },
   "network": {
     "format-wifi": " ",
-    "format-disconnected": "睊",
-    "tooltip-format": "{signaldBm}dBm {frequency}GHz {essid}",
+    "format-disconnected": "󰤭 ",
+    "tooltip-format": "{essid} ({signaldBm}dBm {frequency}GHz)",
     "on-click": "networkmanager_dmenu"
   },
   "backlight": {
@@ -101,13 +98,14 @@
   },
   "battery": {
     "states": { "warning": 30, "critical": 15 },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-icons": ["","","","",""]
+    "format": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-icons": [" "," "," "," "," "]
   },
   "battery#bat2": { "bat": "BAT2" },
   "clock": {
+    "format": "{:%a %e  %H:%M}",
     "tooltip-format": "<big>{:%B %d %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%m/%d/%Y}"
   },
